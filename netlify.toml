@@ -1,4 +1,20 @@
 [build]
-  base = "/path/to/base"  # Set this to the relative path of your base directory
-  command = "pip install -r requirements.txt && python app.py"
-  publish = "public"  # This would be the directory where your static files are generated
+  # Base directory is the folder where the app is located, if it is at the root use "/"
+  base = "/"
+  # The build command installs dependencies and runs the Flask app with gunicorn
+  command = "pip install -r requirements.txt && gunicorn app:app"
+  # The directory to publish is the folder containing the static files (e.g., 'static')
+  publish = "static"
+
+[functions]
+  # Specify the directory where your Netlify functions are located (if using serverless functions)
+  directory = "netlify/functions"
+
+[build.environment]
+  # Optional: specify Python version (use a compatible version)
+  PYTHON_VERSION = "3.8"
+
+[plugins]
+  # Optional: if using plugins for additional functionality like static file handling
+  [[plugins]]
+  package = "@netlify/plugin-python"
