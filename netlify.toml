@@ -1,0 +1,4 @@
+[build]
+  base = "/path/to/base"  # Set this to the relative path of your base directory
+  command = "pip install -r requirements.txt && python app.py"
+  publish = "public"  # This would be the directory where your static files are generated
