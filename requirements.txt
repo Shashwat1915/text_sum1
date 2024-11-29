@@ -3,3 +3,4 @@ transformers==4.34.0
 torch==2.0.1
 sentencepiece==0.1.99
 gunicorn==21.2.0  # Optional, for deploying to production
+numpy==1.23.3
