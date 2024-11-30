@@ -1,9 +1,0 @@
-name = "your-flask-app"
-type = "webpack"  # or "rust" for more advanced setup
-
-[build]
-command = "pip install -r requirements.txt && python app.py"
-output_dir = "public"  # The directory where your built assets go (HTML, CSS, JS)
-
-[build.upload]
-format = "service-worker"  # if you're using Cloudflare Workers with Flask
