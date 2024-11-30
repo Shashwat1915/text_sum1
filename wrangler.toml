@@ -1,12 +1,12 @@
-name = "flask-app"
+name = "your-worker-name"
 type = "python"
 
 [build]
-  command = "pip install -r requirements.txt && python build.py"
-  cwd = "./flask-app"
+  command = "pip install -r requirements.txt"  # or any other necessary command to install dependencies
+  output_dir = "dist"
 
-[env.production]
-  account_id = "your-account-id"
-  workers_dev = true
-  route = "/"
-  zone_id = "your-zone-id"
+[workers_dev]
+  ip = "127.0.0.1"  # local dev IP (if needed)
+
+[build.upload]
+  format = "service-worker"  # when deploying a Python function in Workers
