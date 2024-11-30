@@ -5,108 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Summarization</title>
     <style>
-        /* General Styling */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background: url('{{ url_for("static", filename="nature.gif") }}') no-repeat center center fixed;
             background-size: cover;
-            color: white; /* Text color to contrast the background */
+            color: blue;
         }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-            max-width: 600px;
-            margin: 100px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
+        
 
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #ffffff;
+            width: 40%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
             text-align: center;
-            font-size: 2em;
-            color: #007BFF;
         }
 
-        label {
-            font-size: 1.1em;
-            color: #555;
+        textarea {
+            width: 90%;
+            padding: 20px;
+            margin: 10px;
+            font-size: 16px;
         }
 
-        p {
-            font-size: 1.2em;
-        }
-
-        textarea, select {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #ffffff;
+        button {
+            width: 96%;
+            padding: 20px;
+            margin: 10px;
+            font-size: 16px;
             background-color: #007BFF;
+            color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
-            text-align: center;
         }
 
-        .btn:hover {
+        button:hover {
             background-color: #0056b3;
-            transition: background-color 0.3s;
         }
 
         .result {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            margin-top: 30px;
         }
 
         .result h2 {
-            font-size: 1.5em;
-            color: #333;
+            color: black;
         }
 
         .result p {
-            font-size: 1em;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: ##000000;
+            color: #555;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -114,18 +69,8 @@
     <div class="container">
         <h1>Text Summarization</h1>
         <form action="/summarize" method="POST">
-            <label for="text">Enter your Text:</label>
-            <textarea id="text" name="text" placeholder="Paste your text here..." required></textarea>
-
-            <label for="language">Select Language:</label>
-            <select id="language" name="language" required>
-                <option value="english" {% if selected_language == 'english' %}selected{% endif %}>English</option>
-                <option value="french" {% if selected_language == 'french' %}selected{% endif %}>French</option>
-                <option value="spanish" {% if selected_language == 'spanish' %}selected{% endif %}>Spanish</option>
-                <option value="german" {% if selected_language == 'german' %}selected{% endif %}>German</option>
-            </select>
-
-            <button type="submit" class="btn">Summarize</button>
+            <textarea name="text" rows="8" placeholder="Paste your text here..." required></textarea>
+            <button type="submit">Summarize</button>
         </form>
 
         {% if original_text %}
@@ -139,8 +84,5 @@
             </div>
         {% endif %}
     </div>
-    <footer>
-        <b><p>Made By Shashwat using FB Bart</p></b>
-    </footer>
 </body>
 </html>
