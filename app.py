@@ -3,10 +3,10 @@ from transformers import pipeline
 
 app = Flask(__name__)
 models = {
-    "english": pipeline("summarization", model="facebook/bart-large-cnn"),
-    "french": pipeline("summarization", model="facebook/mbart-large-50-many-to-many-mmt"),
-    "spanish": pipeline("summarization", model="facebook/mbart-large-50-many-to-many-mmt"),
-    "german": pipeline("summarization", model="facebook/mbart-large-50-many-to-many-mmt"),
+    "english": pipeline("summarization", model="sshleifer/distilbart-cnn-6-6"),
+    "french": pipeline("summarization", model="google/mt5-small"),
+    "spanish": pipeline("summarization", model="google/mt5-small"),
+    "german": pipeline("summarization", model="google/mt5-small"),
 }
 
 @app.route("/")
