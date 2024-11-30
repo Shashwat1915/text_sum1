@@ -1,12 +1,13 @@
-name = "your-worker-name"
-type = "python"
+name = "your-project-name"
+type = "javascript"  # or "webpack" if you are using a bundler
 
 [build]
-  command = "pip install -r requirements.txt"  # or any other necessary command to install dependencies
-  output_dir = "dist"
-
-[workers_dev]
-  ip = "127.0.0.1"  # local dev IP (if needed)
+  command = "npm run build"  # or "yarn build", depending on your setup
+  cwd = "."  # current working directory, usually the root
+  output_dir = "public"  # directory containing the built static files (adjust based on your app)
 
 [build.upload]
-  format = "service-worker"  # when deploying a Python function in Workers
+  format = "modules"  # "modules" or "service-worker" depending on your app
+
+[pages]
+  pages_build_output_dir = "public"  # the output directory of the build command, adjust based on your setup
