@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: text-summarization-app
+    env: python
+    runtime: python3
+    region: us-central
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      FLASK_ENV: production
+    autoDeploy: true
