@@ -1,13 +1,9 @@
-name = "your-project-name"
-type = "javascript"  # or "webpack" if you are using a bundler
+name = "your-flask-app"
+type = "webpack"  # or "rust" for more advanced setup
 
 [build]
-  command = "npm run build"  # or "yarn build", depending on your setup
-  cwd = "."  # current working directory, usually the root
-  output_dir = "public"  # directory containing the built static files (adjust based on your app)
+command = "pip install -r requirements.txt && python app.py"
+output_dir = "public"  # The directory where your built assets go (HTML, CSS, JS)
 
 [build.upload]
-  format = "modules"  # "modules" or "service-worker" depending on your app
-
-[pages]
-  pages_build_output_dir = "public"  # the output directory of the build command, adjust based on your setup
+format = "service-worker"  # if you're using Cloudflare Workers with Flask
