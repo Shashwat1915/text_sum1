@@ -1,0 +1,12 @@
+name = "flask-app"
+type = "python"
+
+[build]
+  command = "pip install -r requirements.txt && python build.py"
+  cwd = "./flask-app"
+
+[env.production]
+  account_id = "your-account-id"
+  workers_dev = true
+  route = "/"
+  zone_id = "your-zone-id"
