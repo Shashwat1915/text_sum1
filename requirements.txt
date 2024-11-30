@@ -1,5 +1,6 @@
+--upgrade pip
 flask==2.3.2
-transformers==4.34.0
-torch==2.0.1
 gunicorn==20.1.0
+torch==2.2.0
+transformers==4.34.0
 sentencepiece
