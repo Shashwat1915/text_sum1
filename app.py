@@ -2,11 +2,9 @@ from flask import Flask, render_template, request
 from transformers import pipeline
 from urllib.parse import quote as url_quote
 
-
 app = Flask(__name__)
 
-# Initialize the text summarization pipeline with DistilBART model
-summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+summarizer = pipeline("summarization", model="t5-small")
 
 @app.route("/")
 def home():
